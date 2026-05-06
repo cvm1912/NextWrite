@@ -2,10 +2,11 @@
 import { Card } from "@/components/ui/card";
 import { Trash2 } from "lucide-react";
 import { Pencil } from "lucide-react";
-import { useState } from 'react';
+import { useRouter } from "next/navigation";
+
 export default function GetBlog() {
-    const [editingBlogId, setEditingBlogId] = useState(null);
-    console.log("Editing Blog ID:", editingBlogId);
+ 
+ const router = useRouter();
 
   return(
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
@@ -16,7 +17,7 @@ export default function GetBlog() {
                  <span className="text-sm text-gray-500">
                      <Trash2 size={18} />
                  </span>
-                 <span className="text-sm text-gray-500"><Pencil size={18} onClick={() =>{}}/></span>
+                 <span className="text-sm text-gray-500"><Pencil size={18} onClick={() => router.push('/edit-blog')} /></span>
                  </div>
             </div>
             <p className="text-xl font-light">Blog description goes here.</p>
